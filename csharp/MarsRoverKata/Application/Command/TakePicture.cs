@@ -6,9 +6,9 @@ namespace MarsRoverKata
     public class TakePicture
     {
         private GoProDuskWhite _goPro;
-        private PicturesStorage _storage;
+        private GenericStorage _storage;
 
-        public TakePicture(GoProDuskWhite goPro, PicturesStorage storage)
+        public TakePicture(GoProDuskWhite goPro, GenericStorage storage)
         {
             _goPro = goPro;
             _storage = storage;
@@ -17,7 +17,7 @@ namespace MarsRoverKata
         public void TakePhoto(string roverId)
         {
             var bitmap = _goPro.TakePhotos("default obturation", "0X", 1);
-            var rover = _storage.Read(roverId);
+            var rover = (PictureData)_storage.Read(roverId);
             var position = rover.Position;
             rover.Pictures.Add(position, bitmap);
 
@@ -37,6 +37,7 @@ namespace MarsRoverKata
         }
     }
 
+    /*
     public class PicturesStorage
     {
         private Dictionary<string, StorageItem> StorageDict;
@@ -58,13 +59,13 @@ namespace MarsRoverKata
             return result;
         }
     }
-
-    public class StorageItem
+    */
+    public class PictureData
     {
         public string Position { get; set; }
         public Dictionary<string, string> Pictures { get; set; }
     }
-
+    
     public class PhotoStorageFullException : Exception
     {
 
