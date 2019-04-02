@@ -7,6 +7,6 @@ class DeployRoverHandler
 {
     public function __invoke(DeployRover $command)
     {
-
+        //TODO
     }
 }

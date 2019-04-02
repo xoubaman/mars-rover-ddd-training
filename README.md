@@ -1,25 +1,61 @@
-Rovers are deployed on Mars plateaus to explore them  and send fancy pictures
-of red dust to Earth.
+# Mars rover DDD training
 
-Plateus are divided on squares, conforming a grid.
+## Introduction
 
-Each navigable position on the plateau has a X, Y pair of coordinates.
- N
-W E
- S
+Programming exercise intended to show how to implement DDD tactical patterns
+using an version of the Mars Rover Kata.
+
+## Description
+
+We have an hanger in our space station orbiting Mars(!?) with some rovers
+available for exploring missions. 
+
+A mission consists in a rover sent to a Mars plateaus to explore it and send
+fancy pictures of red dust to Earth.
+
+Plateaus are divided on squares, conforming a grid.
+
+Each navigable position on the plateau has a X,Y pair of coordinates.
+
+Rovers are deployed on a coordinate, facing one cardinal point (N, E, S, W), and
+get a list of movements to do.
+
+Rovers can move forward (M), turn 90º left (L) or turn 90º right (R).
+
+An example of a 4x3 plateau.
+
+```
 0,3 __ __ __ __  4,3
    |__|__|__|__|
    |__|__|__|__|
    |__|__|__|__|
 0,0             4,0
+```
 
-Rovers are deployed on a coordinate, facing north, and get a list of movements to do.
+So, deploying a rover on coordinate 1,0 and sending movements MRM will leave the
+rover at position 2,1 and facing east.
 
-They can move forward (M), turn 90º left (L) or turn 90º right (R).
+They cannot get out of the plateau. If the rover gets to the border of the
+plateau and it is told to move forward, it will not move at all.
 
-So, deployed on coordinate 1,0 with movements MRM will leave the rover at 
-position 2,1 and facing east
+Every time a rover moves to a new point in the plateau, it takes a picture and
+sends it to the main base.
 
-They cannot get out of the plateau. If the rover gets to the limit of the plateau
-and it is told to move forward, it will not move at all.
+## Training
 
+The idea is to cover two cases: applying DDD tactical patterns on a greenfield
+case and on an existing spaghetti-like implementation.
+
+Two examples for both cases are provided. One to be used as an introduction on
+how to apply the patterns by the training facilitator and other to be done by
+participants.
+
+Greenfield cases:
+
+* Facilitator: `ReleaseMissionHandler`
+* Participants: `DeployRoverHandler`
+
+Already implemented cases:
+
+* Facilitator: `TakePictureHandler`
+* Participants: `MoveRoverHandler`
