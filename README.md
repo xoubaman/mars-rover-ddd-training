@@ -59,3 +59,16 @@ Already implemented cases:
 
 * Facilitator: `TakePicture`
 * Participants: `MoveRover`
+
+The greenfield cases come with test skeletons pointing the behavior we want the
+cases to have. Participants should change the test and add the implementation
+applying DDD patterns.
+
+The already implemented classes come with tests covering all their behaviour.
+Participants should avoid much as possible changing the tests, introducing 
+iteratively the DDD patterns mixed with existing code. At certain point it will
+be good to change the storage method to apply the repository pattern and 
+changing the tests will be justified.  
+
+Ideally, the domain model from the greenfield cases could be used for the
+refactors on the implemented cases.
