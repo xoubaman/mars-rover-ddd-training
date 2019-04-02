@@ -3,34 +3,40 @@ declare(strict_types=1);
 
 namespace App\Application\Command\TakePicture;
 
+use App\Infrastructure\Storage;
+
 final class TakePicture
 {
-    /** @var int */
-    private $x;
-    /** @var int */
-    private $y;
-    /** @var string */
-    private $bitmap;
+    /** @var GoProDuskWhite */
+    private $goPro;
+    /** @var Storage */
+    private $storage;
 
-    public function __construct(int $x, int $y, string $bitmap)
+    public function __construct(Storage $storage, GoProDuskWhite $goPro)
     {
-        $this->x      = $x;
-        $this->y      = $y;
-        $this->bitmap = $bitmap;
+        $this->storage = $storage;
+        $this->goPro   = $goPro;
     }
 
-    public function x(): int
+    public function takePhoto(string $roverId): void
     {
-        return $this->x;
+        $bitmap = $this->goPro->takePhotos(
+            'default obturation',
+            '0X',
+            1
+        );
+
+        $rover = $this->storage->read($roverId);
+
+        $position = $rover['position'];
+
+        $rover['pictures'][$position] = $bitmap;
+
+        if (count($rover['pictures']) > 3) {
+            throw new PhotoStorageFull();
+        }
+
+        $this->storage->store($roverId, $rover);
     }
 
-    public function y(): int
-    {
-        return $this->y;
-    }
-
-    public function bitmap(): string
-    {
-        return $this->bitmap;
-    }
 }

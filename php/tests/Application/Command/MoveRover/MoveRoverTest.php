@@ -28,16 +28,6 @@ final class MoveRoverTest extends TestCase
         );
     }
 
-    protected function store4x3Plateau(): void
-    {
-        $this->storage->store(
-            self::PLATEAU_ID,
-            [
-                'dimensions' => '4,3',
-            ]
-        );
-    }
-
     public function testRoverMoves(): void
     {
         $this->store4x3Plateau();
@@ -58,6 +48,16 @@ final class MoveRoverTest extends TestCase
         $this->store4x3Plateau();
         $this->expectException(\Exception::class);
         $this->service->move('not stored rover', 'M');
+    }
+
+    private function store4x3Plateau(): void
+    {
+        $this->storage->store(
+            self::PLATEAU_ID,
+            [
+                'dimensions' => '4,3',
+            ]
+        );
     }
 
     private function storeRoverInPosition(string $position): void

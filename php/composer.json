@@ -14,5 +14,8 @@
   },
   "scripts": {
     "test": "vendor/bin/phpunit"
+  },
+  "require": {
+    "fzaninotto/faker": "^1.8"
   }
 }

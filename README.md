@@ -57,5 +57,5 @@ Greenfield cases:
 
 Already implemented cases:
 
-* Facilitator: `TakePictureHandler`
-* Participants: `MoveRoverHandler`
+* Facilitator: `TakePicture`
+* Participants: `MoveRover`
