@@ -37,29 +37,6 @@ namespace MarsRoverKata
         }
     }
 
-    /*
-    public class PicturesStorage
-    {
-        private Dictionary<string, StorageItem> StorageDict;
-        public PicturesStorage()
-        {
-            StorageDict = new Dictionary<string, StorageItem>();
-        }
-
-        public void Store(string id, StorageItem storageItem)
-        { 
-            StorageDict.Add(id, storageItem);
-        }
-
-        public StorageItem Read(string id)
-        {
-            StorageItem result = new StorageItem();
-            StorageDict.TryGetValue(id, out result);
-
-            return result;
-        }
-    }
-    */
     public class PictureData
     {
         public string Position { get; set; }
