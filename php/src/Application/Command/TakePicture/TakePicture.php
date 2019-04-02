@@ -38,5 +38,4 @@ final class TakePicture
 
         $this->storage->store($roverId, $rover);
     }
-
 }

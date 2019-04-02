@@ -64,7 +64,7 @@ final class TakePictureTest extends TestCase
         $this->service->takePhoto(self::ROVER_ID);
     }
 
-    protected function storeRoverWithThreePhotosOfDifferentCoordinates(): void
+    private function storeRoverWithThreePhotosOfDifferentCoordinates(): void
     {
         $this->storage->store(
             self::ROVER_ID,

@@ -9,5 +9,4 @@ final class GoProDuskWhite
     {
         return (string)rand(1000, 9999);
     }
-
 }
