@@ -4,14 +4,13 @@ namespace MarsRoverKata.Application.Command
 {
     public class ReleaseMission
     {
-        private string _plateauId;
-        private string _roverId;
-
         public ReleaseMission(string plateauId, string roverId)
         {
-            _plateauId = plateauId;
-            _roverId = roverId;
+            PlateauId = plateauId;
+            RoverId = roverId;
         }
 
+        public string PlateauId { get; }
+        public string RoverId { get; }
     }
 }
