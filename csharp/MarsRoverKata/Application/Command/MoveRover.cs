@@ -1,8 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using MarsRoverKata.Application.Infrastructure;
+using System;
 using System.Linq;
 
-namespace MarsRoverKata
+namespace MarsRoverKata.Application.Command
 {
     public class MoveRover
     {
