@@ -13,10 +13,10 @@ namespace MarsRoverKata.Application.Command
             Orientation = orientation;
         }
 
-        public string PlateauId;
-        public string RoverId;
-        public int X;
-        public int Y;
-        public string Orientation;
+        public string PlateauId { get; }
+        public string RoverId { get; }
+        public int X { get; }
+        public int Y { get; }
+        public string Orientation { get; }
     }
 }
