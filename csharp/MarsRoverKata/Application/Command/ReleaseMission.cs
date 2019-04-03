@@ -1,10 +1,16 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
-namespace MarsRoverKata
+namespace MarsRoverKata.Application.Command
 {
-    class ReleaseMission
+    public class ReleaseMission
     {
+        public ReleaseMission(string plateauId, string roverId)
+        {
+            PlateauId = plateauId;
+            RoverId = roverId;
+        }
+
+        public string PlateauId { get; }
+        public string RoverId { get; }
     }
 }

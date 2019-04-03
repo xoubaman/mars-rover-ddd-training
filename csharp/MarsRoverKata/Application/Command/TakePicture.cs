@@ -1,7 +1,8 @@
-﻿using System;
+﻿using MarsRoverKata.Application.Infrastructure;
+using System;
 using System.Collections.Generic;
 
-namespace MarsRoverKata
+namespace MarsRoverKata.Application.Command
 {
     public class TakePicture
     {

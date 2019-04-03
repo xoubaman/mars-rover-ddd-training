@@ -1,4 +1,5 @@
-using MarsRoverKata;
+using MarsRoverKata.Application.Command;
+using MarsRoverKata.Application.Infrastructure;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 

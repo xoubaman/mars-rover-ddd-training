@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 
-namespace MarsRoverKata
+namespace MarsRoverKata.Application.Infrastructure
 {
     public class GenericStorage
     {
