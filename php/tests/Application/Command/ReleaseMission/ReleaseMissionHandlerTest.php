@@ -9,6 +9,8 @@ use PHPUnit\Framework\TestCase;
 
 final class ReleaseMissionHandlerTest extends TestCase
 {
+    const ROVER_ID   = 'some rover id';
+    const PLATEAU_ID = 'some plateau id';
     /** @var ReleaseMissionHandler */
     private $commandHandler;
 
@@ -19,16 +21,13 @@ final class ReleaseMissionHandlerTest extends TestCase
         $this->commandHandler = new ReleaseMissionHandler();
     }
 
-    public function testReleasingAMissionMakesSelectRoverNotAvailableForAnother(): void
+    public function testReleasingAMissionMakesSelectedRoverNotAvailable(): void
     {
         //Arrange
         //TODO
 
         //Act
-        $command = new ReleaseMission(
-            'some plateau id',
-            'some rover id'
-        );
+        $command = new ReleaseMission(self::PLATEAU_ID, self::ROVER_ID);
         $this->commandHandler->__invoke($command);
 
         //Assert
@@ -41,13 +40,10 @@ final class ReleaseMissionHandlerTest extends TestCase
         //TODO
 
         //Expect
-        $this->expectException(NoRoversAvailableForMission::class);
+        $this->expectException(SendUnavailableRoverToAMission::class);
 
         //Act
-        $command = new ReleaseMission(
-            'some plateau id',
-            'some rover id'
-        );
+        $command = new ReleaseMission(self::PLATEAU_ID, self::ROVER_ID);
         $this->commandHandler->__invoke($command);
     }
 }

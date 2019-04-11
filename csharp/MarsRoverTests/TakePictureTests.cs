@@ -7,7 +7,7 @@ using System.Linq;
 namespace MarsRoverTests
 {
     [TestClass]
-    public class TakePictoreTests
+    public class TakePictureTests
     {
         const string ROVER_ID = "rover-id";
         const string POSITION = "1,1,N";
@@ -55,5 +55,5 @@ namespace MarsRoverTests
             var picturesInPosition = pictures.Where(p => p.Key == position);
             Assert.IsTrue(picturesInPosition.Count() > 0);
         }
-}
+    }
 }
