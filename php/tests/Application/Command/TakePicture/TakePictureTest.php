@@ -13,6 +13,7 @@ final class TakePictureTest extends TestCase
 {
     const ROVER_ID = 'rover-id';
     const POSITION = '1,1,N';
+    const BITMAP   = 666;
 
     /** @var Storage */
     private $storage;
@@ -25,7 +26,8 @@ final class TakePictureTest extends TestCase
     {
         parent::setUp();
 
-        $this->goPro   = new GoProDuskWhite();
+        $this->goPro = $this->createMock(GoProDuskWhite::class);
+        $this->goPro->method('takePhotos')->willReturn(self::BITMAP);
         $this->storage = new Storage();
 
         $this->service = new TakePicture(
@@ -54,6 +56,7 @@ final class TakePictureTest extends TestCase
         $roverData = $this->storage->read(self::ROVER_ID);
         $pictures  = $roverData['pictures'];
         self::assertNotEmpty($pictures[$position]);
+        self::assertEquals(self::BITMAP, $pictures[$position]);
     }
 
     public function testCannotTakeMoreThanThreePhotosOfDifferentCoordinates(): void
