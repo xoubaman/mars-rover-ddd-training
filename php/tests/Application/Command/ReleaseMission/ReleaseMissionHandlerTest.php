@@ -5,6 +5,7 @@ namespace App\Tests\Application\Command\ReleaseMission;
 
 use App\Application\Command\ReleaseMission\ReleaseMission;
 use App\Application\Command\ReleaseMission\ReleaseMissionHandler;
+use App\Domain\Rover\Availability;
 use App\Domain\Rover\Hangar;
 use App\Domain\Rover\Rover;
 use PHPUnit\Framework\TestCase;
@@ -31,7 +32,7 @@ final class ReleaseMissionHandlerTest extends TestCase
     public function testReleasingAMissionMakesSelectedRoverNotAvailable(): void
     {
         //Arrange
-        $rover = new Rover(self::ROVER_ID, 'available');
+        $rover = new Rover(self::ROVER_ID, Availability::available());
         $this->hangar->register($rover);
 
         //Act
@@ -39,7 +40,7 @@ final class ReleaseMissionHandlerTest extends TestCase
         $this->commandHandler->__invoke($command);
 
         //Assert
-        $expected = new Rover(self::ROVER_ID, 'not-available');
+        $expected = new Rover(self::ROVER_ID, Availability::notAvailable());
         self::assertEquals($expected, $rover);
     }
 

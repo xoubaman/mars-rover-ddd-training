@@ -7,10 +7,10 @@ final class Rover
 {
     /** @var string */
     private $id;
-    /** @var string */
+    /** @var Availability */
     private $availability;
 
-    public function __construct(string $id, string $availability)
+    public function __construct(string $id, Availability $availability)
     {
         $this->id           = $id;
         $this->availability = $availability;
@@ -21,14 +21,13 @@ final class Rover
         return $this->id;
     }
 
-    public function availability(): string
+    public function availability(): Availability
     {
-
         return $this->availability;
     }
 
     public function sendItOnAMission()
     {
-        $this->availability = 'not-available';
+        $this->availability = $this->availability->noLonger();
     }
 }
