@@ -47,6 +47,11 @@ class MoveRover
 
                 foreach ($movements as $movement) {
                     switch ($movement) {
+                        /**
+                         * This is simplified to only cover the movements the tests do
+                         * A complete implementation would have another switch case
+                         * and four ifs in each case (*_*)
+                         */
                         case 'R':
                             if ($currentOrientation === 'N') {
                                 $currentOrientation = 'E';

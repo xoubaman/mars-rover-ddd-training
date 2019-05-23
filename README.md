@@ -7,7 +7,7 @@ using an version of the Mars Rover Kata.
 
 ## Description
 
-We have an hanger in our space station orbiting Mars(!?) with some rovers
+We have an hangar in our space station orbiting Mars(!?) with some rovers
 available for exploring missions. 
 
 A mission consists in a rover sent to a Mars plateaus to explore it and send
@@ -65,7 +65,7 @@ cases to have. Participants should change the test and add the implementation
 applying DDD patterns.
 
 The already implemented classes come with tests covering all their behaviour.
-Participants should avoid much as possible changing the tests, introducing 
+Participants should avoid as much as possible changing the tests, introducing 
 iteratively the DDD patterns mixed with existing code. At certain point it will
 be good to change the storage method to apply the repository pattern and 
 changing the tests will be justified.  
