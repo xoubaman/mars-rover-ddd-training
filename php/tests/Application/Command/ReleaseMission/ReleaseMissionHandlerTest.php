@@ -5,6 +5,8 @@ namespace App\Tests\Application\Command\ReleaseMission;
 
 use App\Application\Command\ReleaseMission\ReleaseMission;
 use App\Application\Command\ReleaseMission\ReleaseMissionHandler;
+use App\Domain\Rover\Hangar;
+use App\Domain\Rover\Rover;
 use PHPUnit\Framework\TestCase;
 
 final class ReleaseMissionHandlerTest extends TestCase
@@ -13,25 +15,32 @@ final class ReleaseMissionHandlerTest extends TestCase
     const PLATEAU_ID = 'some plateau id';
     /** @var ReleaseMissionHandler */
     private $commandHandler;
+    /** @var Hangar */
+    private $hangar;
 
     protected function setUp(): void
     {
         parent::setUp();
 
-        $this->commandHandler = new ReleaseMissionHandler();
+        $this->hangar = new Hangar();
+        $this->commandHandler = new ReleaseMissionHandler(
+            $this->hangar
+        );
     }
 
     public function testReleasingAMissionMakesSelectedRoverNotAvailable(): void
     {
         //Arrange
-        //TODO
+        $rover = new Rover(self::ROVER_ID, 'available');
+        $this->hangar->register($rover);
 
         //Act
         $command = new ReleaseMission(self::PLATEAU_ID, self::ROVER_ID);
         $this->commandHandler->__invoke($command);
 
         //Assert
-        // TODO check rover is no longer available
+        $expected = new Rover(self::ROVER_ID, 'not-available');
+        self::assertEquals($expected, $rover);
     }
 
     public function testNoMissionPossibleIfNoAvailableRovers(): void
